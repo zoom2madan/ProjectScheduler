@@ -14,7 +14,8 @@ public class Main {
 
     private static final String BACKLOG_FILE_PATH = "testdata/backlog.csv";
     private static final String STAFFING_FILE_PATH = "testdata/staffing.csv";
-    private static final String PROJECT_PLAN_FILE_PATH = "testdata/project-plan.csv";
+    private static final String PROJECT_PLAN_TASK_CALENDAR_FILE_PATH = "testdata/project-plan-calendar.csv";
+    private static final String PROJECT_PLAN_TASK_VIEW_FILE_PATH = "testdata/project-plan-tasklist.csv";
 
     private static Map<WorkStream, List<WorkStream>> workStreamDependencyGraph;
 
@@ -43,6 +44,8 @@ public class Main {
         // Prepare the staffing plan
         projectPlanService.plan(backlog, staffingPlan, workStreamDependencyGraph);
 
-        FileUtils.writeCSV(staffingPlan.asTable(), PROJECT_PLAN_FILE_PATH);
+        FileUtils.writeCSV(staffingPlan.asTaskCalendar(), PROJECT_PLAN_TASK_CALENDAR_FILE_PATH);
+
+        FileUtils.writeCSV(staffingPlan.asTaskList(), PROJECT_PLAN_TASK_VIEW_FILE_PATH);
     }
 }
