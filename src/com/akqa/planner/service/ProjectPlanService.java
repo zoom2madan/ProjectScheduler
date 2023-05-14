@@ -57,10 +57,12 @@ public class ProjectPlanService {
             task.setEffort(backlogItem.getEffortMap().get(workStream));
             task.setEpicName(backlogItem.getEpic());
             task.setStoryName(backlogItem.getStory());
-            task.setName(backlogItem.getStory() + "::" + workStream.name());
+            task.setName(backlogItem.getEpic() + " : " + backlogItem.getStory() + " : " + workStream.name());
 
             // add to the list
-            taskList.add(task);
+            if(task.getEffort() > 0.0f) {
+                taskList.add(task);
+            }
         }
 
         // We have to identify the depth of workstream in the graph, and then use that depth to sort the tasklist.

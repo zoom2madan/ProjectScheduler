@@ -12,22 +12,37 @@ import com.akqa.planner.util.FileUtils;
 
 public class Main {
 
-    private static final String BACKLOG_FILE_PATH = "testdata/backlog.csv";
-    private static final String STAFFING_FILE_PATH = "testdata/staffing.csv";
-    private static final String PROJECT_PLAN_TASK_CALENDAR_FILE_PATH = "testdata/project-plan-calendar.csv";
-    private static final String PROJECT_PLAN_TASK_VIEW_FILE_PATH = "testdata/project-plan-tasklist.csv";
+//    private static final String BACKLOG_FILE_PATH = "testdata/backlog.csv";
+//    private static final String STAFFING_FILE_PATH = "testdata/staffing.csv";
+//    private static final String PROJECT_PLAN_TASK_CALENDAR_FILE_PATH = "testdata/project-plan-calendar.csv";
+//    private static final String PROJECT_PLAN_TASK_VIEW_FILE_PATH = "testdata/project-plan-tasklist.csv";
+    private static final String BACKLOG_FILE_PATH = "testdata/dipit/Dipit-IIT-Planner-Backlog.csv";
+    private static final String STAFFING_FILE_PATH = "testdata/dipit/Dipit-IIT-Planner-StaffingPlan.csv";
+    private static final String PROJECT_PLAN_TASK_CALENDAR_FILE_PATH = "testdata/dipit/physics-project-plan-calendar.csv";
+    private static final String PROJECT_PLAN_TASK_VIEW_FILE_PATH = "testdata/dipit/physics-project-plan-tasklist.csv";
 
     private static Map<WorkStream, List<WorkStream>> workStreamDependencyGraph;
 
+//    static {
+//        // This approach to creating graphs is called Adjacency List
+//        Map<WorkStream, List<WorkStream>> graph = new HashMap<>();
+//        WorkStream[] beDependencies = new WorkStream[]{};
+//        WorkStream[] feDependencies = new WorkStream[]{WorkStream.BE};
+//        WorkStream[] qaDependencies = new WorkStream[]{WorkStream.BE, WorkStream.FE};
+//        graph.put(WorkStream.BE, Arrays.asList(beDependencies));
+//        graph.put(WorkStream.FE, Arrays.asList(feDependencies));
+//        graph.put(WorkStream.QA, Arrays.asList(qaDependencies));
+//        workStreamDependencyGraph = Collections.unmodifiableMap(graph);
+//    }
     static {
         // This approach to creating graphs is called Adjacency List
         Map<WorkStream, List<WorkStream>> graph = new HashMap<>();
-        WorkStream[] beDependencies = new WorkStream[]{};
-        WorkStream[] feDependencies = new WorkStream[]{WorkStream.BE};
-        WorkStream[] qaDependencies = new WorkStream[]{WorkStream.BE, WorkStream.FE};
-        graph.put(WorkStream.BE, Arrays.asList(beDependencies));
-        graph.put(WorkStream.FE, Arrays.asList(feDependencies));
-        graph.put(WorkStream.QA, Arrays.asList(qaDependencies));
+        WorkStream[] phyDependencies = new WorkStream[]{};
+        WorkStream[] chemDependencies = new WorkStream[]{};
+        WorkStream[] mathsDependencies = new WorkStream[]{};
+        graph.put(WorkStream.Physics, Arrays.asList(phyDependencies));
+        graph.put(WorkStream.Chemistry, Arrays.asList(chemDependencies));
+        graph.put(WorkStream.Maths, Arrays.asList(mathsDependencies));
         workStreamDependencyGraph = Collections.unmodifiableMap(graph);
     }
 

@@ -34,9 +34,9 @@ public class BacklogTestDataManager {
 
             // Set Effort Map
             effortMap = new HashMap();
-            effortMap.put(WorkStream.BE, Float.parseFloat(backlogDataRow.get(2)));
-            effortMap.put(WorkStream.FE, Float.parseFloat(backlogDataRow.get(3)));
-            effortMap.put(WorkStream.QA, Float.parseFloat(backlogDataRow.get(4)));
+            effortMap.put(WorkStream.Physics, Float.parseFloat(backlogDataRow.get(2)));
+            effortMap.put(WorkStream.Chemistry, Float.parseFloat(backlogDataRow.get(3)));
+            effortMap.put(WorkStream.Maths, Float.parseFloat(backlogDataRow.get(4)));
             backlogItem.setEffortMap(effortMap);
 
             // Add backlog item to the list
